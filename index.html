@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk License Expiry Update</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bulk License Expiry Update</h1>
+        <div class="form-container">
+            <div class="form-group">
+                <label for="orderNumbers">Order Numbers (one per line):</label>
+                <textarea id="orderNumbers" rows="10" placeholder="Enter order numbers, one per line"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">Change date to:</label>
+                <input type="date" id="expiryDate">
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments (required for audit trail):</label>
+                <textarea id="comments" rows="3" placeholder="Enter a comment explaining the reason for this update (required)"></textarea>
+            </div>
+            <button id="previewButton">Preview Orders</button>
+        </div>
+
+        <div class="preview-container" id="previewContainer" style="display: none;">
+            <h2>Order Preview</h2>
+            <div class="select-actions">
+                <button id="selectAllButton">Select All</button>
+                <button id="deselectAllButton">Deselect All</button>
+            </div>
+            <div class="table-container">
+                <table id="orderTable">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="selectAll"></th>
+                            <th>Order Number</th>
+                            <th>Current License Expiry Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderTableBody">
+                        <!-- Order data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <button id="executeButton" disabled>Execute Script for Selected Orders</button>
+        </div>
+
+        <div class="results-container" id="resultsContainer" style="display: none;">
+            <h2>Results</h2>
+            <div id="statusContainer"></div>
+            <div id="sqlPreview" class="sql-preview">
+                <h3>SQL Preview</h3>
+                <pre id="sqlStatement"></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="border: 1px solid #ccc; padding: 30px; border-radius: 5px; width: 350px; height: 235px; font-family: Arial, sans-serif; font-size: 14px; background-color: #fff;">
+        <p><strong style="color: #d9534f;">You have XX days left in your ACD5 migration grace period.</strong></p>
+        <ul>
+            <li><strong>You can still view your ACD5 account, but you cannot make any changes (read-only access)</strong></li>
+            <li>To continue working, go to Catina.</li>
+        </ul>
+
+
+        <p><a href="https://your-migration-info-url.com" style="color: #007bff; text-decoration: none;">Click here</a> to learn more about Catina.</p>
+        <p>_    </p>
+        <a href="https://your-catina-url.com" 
+        style="display: inline-block; float: right; background-color: #d9534f; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold;">
+        Go to Catina
+     </a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
